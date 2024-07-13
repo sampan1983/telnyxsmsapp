@@ -1,0 +1,6 @@
+{
+    "require": {
+        "twilio/sdk": "^5.41",
+        "telnyx/telnyx-php": "^2.8"
+    }
+}
