@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://north-quest.org/';
+$config['base_url'] = 'https://comms-connect-f4bc3eea7886.herokuapp.com/';
 
 /*
 |--------------------------------------------------------------------------
