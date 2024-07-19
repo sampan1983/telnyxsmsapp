@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '81a17a7ce7aa8061',
-	'database' => 'smsapp',
+	'hostname' => 'q68u8b2buodpme2n.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+	'username' => 'q40safy2jq1aej56',
+	'password' => 'frbhki4aokob1hzv',
+	'database' => 'dz1oduatpy1ct2mo',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
