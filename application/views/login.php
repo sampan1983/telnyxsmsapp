@@ -53,65 +53,14 @@ input#rememberme {
     position: relative;
     top: 1px;
 }
-.log-flex input.btn {
-    background: #000056;
-    color: #fff;
-}
-.input-div.focus > .i > i {
-  color: #000056;
-}
-.input-div:before {
-  background-color: #000056;
-}
-.input-div:after {
-  background-color: #000056;
-}
-.row.divclass02 {
-    width: 50%;
-    margin: 15vh auto;
-}
-.remember_class label:hover {
-  color: #000056;
-}
-.log-flex a.forget:hover {
-    color: #000056;
-}
 .sms-img img {
-    width: 25%;
-    height: auto;
-    margin-bottom: 10px;
+    width: 60%;
+    height: 42px;
 }
 .login-content {
     text-align: center;
     margin-top: 15px !important;
     margin-bottom: 15px !important;
-}
-@media(min-width: 240px) and (max-width: 479px){
-  .row.divclass02 {
-    width: 100% !important;
-}
-#loginform {
-    width: 100% !important;
-}
-.log-flex {
-    display: block;
-}
-.log-flex input.btn {
-    width: 100% !important;
-}
-.log-flex .forget {
-    text-align: center !important;
-    float: inline-start !important;
-    width: 100% !important;
-}
-}
-@media(min-width: 480px) and (max-width: 767px){
-  #loginform {
-    width: 100% !important;
-}
-.row.divclass02 {
-    width: 100% !important;
-}
 }
 </style>
 </head>
@@ -132,7 +81,7 @@ input#rememberme {
        <!--  <img src="<?php echo base_url(); ?>img/avatar.svg"> -->
         <!-- <h1 class="logs">Login Panel</h1> -->
         <div class="sms-img">
-        <img src="<?php echo base_url() ?>img/north-quest.jpg">
+        <img src="http://103.173.215.7/democalling/img/SMSLOGO.png">
       </div>
         <p class="text-muted">Login to your panel</p>
               <div class="input-div one">
