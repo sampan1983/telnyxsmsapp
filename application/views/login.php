@@ -81,7 +81,7 @@ input#rememberme {
        <!--  <img src="<?php echo base_url(); ?>img/avatar.svg"> -->
         <!-- <h1 class="logs">Login Panel</h1> -->
         <div class="sms-img">
-        <img src="http://103.173.215.7/democalling/img/SMSLOGO.png">
+        <img src="img/SMSLOGO.png">
       </div>
         <p class="text-muted">Login to your panel</p>
               <div class="input-div one">
