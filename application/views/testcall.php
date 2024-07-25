@@ -1792,8 +1792,8 @@ foreach ($contact_data as $key) { ?>
       var client;
       var currentCall = null;
 
-      var username = 'office76324';
-      var password = 'pDf6zUMT';
+      var username = 'sainianjalipro66804';
+      var password = 'YQGJKNuj';
       var number = localStorage.getItem('telnyx.example.number') || '';
       var audio = localStorage.getItem('telnyx.example.audio') || '1';
       var video = localStorage.getItem('telnyx.example.video') || '0';
