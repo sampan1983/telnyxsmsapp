@@ -274,7 +274,7 @@ $('.ttt').click(function(){
 
                           <th>Account ID</th>
 
-                          <th>Account Token</th>
+                          <th>Sip Connection</th>
 
                           <th>Service ID</th>
 
@@ -399,7 +399,7 @@ $('.ttt').click(function(){
          <div class="row">
            <div class="col-sm-12">
               <div class="form-group">
-               <label for="accntoken">Account Token</label>
+               <label for="accntoken">Sip Connection</label>
                <br>
                <input type="text"  placeholder="Enter Token" required class="form-control input-sm parsley-validated "  name="token" >
               </div>
@@ -479,7 +479,7 @@ $('.ttt').click(function(){
                         <div class="row">
                           <div class="col-sm-12">
                             <div class="form-group">
-                              <label for="accntoken">Account Token</label>
+                              <label for="accntoken">Sip Connection</label>
                               <br>
                                 <input type="text" id="edittoken"  placeholder="Enter Token" required class="form-control input-sm parsley-validated "  name="token" >
                                </div>
@@ -1015,7 +1015,7 @@ $('.ttt').click(function(){
 
                       <div class="form-group">
 
-                        <label for="accntoken">Account Token</label>
+                        <label for="accntoken">Sip Connection</label>
 
                         <br>
 
