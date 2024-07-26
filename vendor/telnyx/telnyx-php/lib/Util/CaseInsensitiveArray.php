@@ -14,6 +14,7 @@ use ArrayAccess;
  * In the context of telnyx-php, this is useful because the API will return headers with different
  * case depending on whether HTTP/2 is used or not (with HTTP/2, headers are always in lowercase).
  */
+ #[\ReturnTypeWillChange]
 class CaseInsensitiveArray implements \ArrayAccess, \Countable, \IteratorAggregate
 {
     private $container = [];
