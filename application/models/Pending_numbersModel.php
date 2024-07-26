@@ -63,7 +63,7 @@ class Pending_numbersModel extends CI_Model {
 	function sentpendingmsg()
 	{
 
-		$check_service = $this->db->query("select * from tapp_sent_msg where scheduled_time < now() order by date_time desc limit 200 ");
+		$check_service = $this->db->query("select * from tapp_sent_msg where scheduled_time < now() and fax_type='0' order by date_time desc limit 200 ");
 		echo $row = $check_service->num_rows();
 		if ($row>0)
 		{
@@ -92,7 +92,7 @@ class Pending_numbersModel extends CI_Model {
 			 $AuthToken = $token;
 			 // $client = new Client($AccountSid, $AuthToken);
 			 // $client = new Client($sid, $twilio_token);
-			 $query = $this->db->query("select * from  tapp_sent_msg where   scheduled_time < now() order by date_time desc limit 150");
+			 $query = $this->db->query("select * from  tapp_sent_msg where   scheduled_time < now() and fax_type='0' order by date_time desc limit 150");
 			 if ($query->num_rows()>0)
 			 {
 				$data_row = $query->result_array();
