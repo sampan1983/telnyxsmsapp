@@ -215,6 +215,7 @@ table
                     <th>Media</th>
 
                     <th>Sender Number</th>
+                    <th>Status</th>
 
                      <th>Added on</th>
 
@@ -261,6 +262,13 @@ table
 
                       }
 
+			     if($pmsg[$i]['fax_type']==0){
+				     $status='start';
+			     }
+			     else{
+				     $status='stop';
+			     }
+
                     echo '<tr>
 
                               <td>'.$t.'</td>
@@ -272,6 +280,7 @@ table
                                <td>'.$img.'</td>
 
                               <td>'.$pmsg[$i]['twilio_num'].'</td>
+                              <td>'.$status.'</td>
 
 
 
