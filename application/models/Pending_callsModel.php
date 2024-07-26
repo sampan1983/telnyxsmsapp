@@ -198,7 +198,7 @@ $from_plus='+'.str_replace('+','',$from);
 
 $call = Call::create([
 
-  'connection_id' => '1836512470915613925',
+  'connection_id' => $AuthToken,
 
   'to' => $to_plus,
 
