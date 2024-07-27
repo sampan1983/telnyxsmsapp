@@ -366,6 +366,7 @@ echo "insert into tapp_sent_msg_failed(sms_number,twilio_num,message,bulk_name,d
 			}
 	  }
 }
+		$this->db->close();
 }
 // }
 
