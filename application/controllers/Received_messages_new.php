@@ -274,7 +274,8 @@ echo '<div class="d-flex justify-content-end mb-4"><div class="chatimg">';
 
 public function send_chat_msg(){
 
-
+print_r($_POST);
+	exit();
 
 
 
