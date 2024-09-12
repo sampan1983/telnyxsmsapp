@@ -8,6 +8,7 @@ namespace Telnyx\Exception;
  *
  * @package Telnyx\Exception
  */
+#[AllowDynamicProperties]
 class AuthenticationException extends ApiErrorException
 {
 }
