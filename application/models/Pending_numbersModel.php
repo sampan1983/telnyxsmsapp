@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 use Twilio\Rest\Client;
-error_reporting(0);
+
 
 
 class Pending_numbersModel extends CI_Model {
