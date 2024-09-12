@@ -271,7 +271,7 @@ $from =  $requestData['data']['payload']['from']['phone_number'];
 		if ($get_data->num_rows()>0) {
 			$data = $get_data->result_array();
 			$user_id = $data[0]['user_id'];
-		}
+		
 		if(strtolower($body)=='stop'){
 			$in = $this->db->query("insert into tapp_blacklist (number,keyword,datetime,user_id)values('$from','$body',now(),'".$user_id."')");
 		}
@@ -348,7 +348,7 @@ $params = [
 			$insert_data = 'fail';
 		}
 
-
+}
 
  // Respond with a success message.
         http_response_code(200);
