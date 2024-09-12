@@ -338,6 +338,30 @@ catch (Telnyx\Exception\UnknownApiErrorException $e)
 			}
 
 			}
+						catch (Telnyx\Exception\AuthenticationException $e)
+
+		    {
+
+			echo $e->getMessage();
+			$errorget = $e->getMessage();
+			$errorget = str_replace('/', '', $errorget);
+					  $errorget = str_replace("'\'", '', $errorget);
+					  $errorget = str_replace('"', '', $errorget);
+					  $errorget = str_replace("'", '', $errorget);
+					  $errorget = str_replace("'", '', $errorget);
+
+			$FAILED_MSG = "INSERT INTO tapp_sent_msg_failed(sms_number, twilio_num, message, images, bulk_name, date_time,user_id,error) VALUES ('$number','$twilio_num','$message','$img','$unique_id',now(),'".$_SESSION['id']."','$errorget')";
+			$tapp_sent_msg_log = $this->db->query($FAILED_MSG);
+			if ($FAILED_MSG)
+			{
+			// $_SESSION['failed'] = $e->getMessage() ;
+				   $_SESSION['failed'] = $e->getMessage();
+
+
+			return 'failed msg';
+			}
+
+			}
 catch (Telnyx\Exception\TelnyxException $e)
 
 		    {
