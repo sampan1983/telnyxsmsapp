@@ -373,6 +373,7 @@ class Pending_numbersModel extends CI_Model {
 function sentpendingmsg()
 {
     $this->load->database(); // Ensure the database is loaded
+
     $check_service = $this->db->query("SELECT * FROM tapp_sent_msg WHERE scheduled_time < NOW() AND fax_type='0' ORDER BY date_time DESC LIMIT 200");
     $row = $check_service->num_rows();
 
@@ -444,16 +445,16 @@ function sentpendingmsg()
                                     }
                                 } catch (\Telnyx\Exception\AuthenticationException $e) {
                                     $errorget = $e->getMessage();
-                                    $this->log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget);
+                                    $this->log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget, $id);
                                 } catch (\Telnyx\Exception\PermissionException $e) {
                                     $errorget = $e->getMessage();
-                                    $this->log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget);
+                                    $this->log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget, $id);
                                 } catch (\Telnyx\Exception\TelnyxException $e) {
                                     $errorget = $e->getMessage();
-                                    $this->log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget);
+                                    $this->log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget, $id);
                                 } catch (\Telnyx\Exception\UnknownApiErrorException $e) {
                                     $errorget = $e->getMessage();
-                                    $this->log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget);
+                                    $this->log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget, $id);
                                 }
                             } else {
                                 // Handle the case where the number is in the blacklist
@@ -467,17 +468,20 @@ function sentpendingmsg()
     $this->db->close();
 }
 
-private function log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget)
+private function log_error($number, $twilio_num, $msg, $bulkname, $user_id, $errorget, $id)
 {
     $msg = str_replace(['/', '\'\'', '"', "'"], '', $msg);
     $errorget = str_replace(['/', '\'\'', '"', "'"], '', $errorget);
 
     $this->db->query("INSERT INTO tapp_sent_msg_failed(sms_number, twilio_num, message, bulk_name, date_time, user_id, error) VALUES ('".str_replace('+', '', $number)."', '".str_replace('+', '', $twilio_num)."', '$msg', '$bulkname', NOW(), '$user_id', '$errorget')");
+    
+    // Ensure $id is defined before using it
     $del_pending = $this->db->query("DELETE FROM tapp_sent_msg WHERE id = '$id'");
     if ($del_pending) {
         $_SESSION['pending_msg'] = '0';
     }
 }
+
 
 
 
