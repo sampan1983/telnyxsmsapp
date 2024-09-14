@@ -90,33 +90,6 @@
 
 
 
-<script>
-$(document).ready(function() {
-    // Initialize DataTable without pagination
-    var table = $('#dataTable').DataTable({
-        paging: false // Disable pagination to show all rows
-    });
-
-    // Copy button logic
-    $('#copyBlacklist').on('click', function() {
-        // Get only the "Number" column (second column)
-        var blacklistNumbers = [];
-        table.rows().every(function() {
-            var data = this.data();
-            blacklistNumbers.push(data[1]); // Get the second column (Number)
-        });
-
-        // Copy to clipboard
-        var tempElement = $('<textarea>');
-        tempElement.val(blacklistNumbers.join('\n')).appendTo('body').select();
-        document.execCommand('copy');
-        tempElement.remove();
-
-        alert('Blacklist numbers copied to clipboard!');
-    });
-});
-</script>
-
 
             </div>
 
@@ -317,6 +290,33 @@ $(document).ready(function() {
   </div>
 
 
+
+<script>
+$(document).ready(function() {
+    // Initialize DataTable without pagination
+    var table = $('#dataTable').DataTable({
+        paging: true // Disable pagination to show all rows
+    });
+
+    // Copy button logic
+    $('#copyBlacklist').on('click', function() {
+        // Get only the "Number" column (second column)
+        var blacklistNumbers = [];
+        table.rows().every(function() {
+            var data = this.data();
+            blacklistNumbers.push(data[1]); // Get the second column (Number)
+        });
+
+        // Copy to clipboard
+        var tempElement = $('<textarea>');
+        tempElement.val(blacklistNumbers.join('\n')).appendTo('body').select();
+        document.execCommand('copy');
+        tempElement.remove();
+
+        alert('Blacklist numbers copied to clipboard!');
+    });
+});
+</script>
 
   <script type="text/javascript">
 
