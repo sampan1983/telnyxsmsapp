@@ -52,7 +52,8 @@
               <button type="button" class="btn btn-primary btninp btn-md"  data-toggle="modal" data-target="#form"><i class="fa fa-plus fa-sm"></i> Add Number</button>
               <!-- <button type="button" class="btn btn-primary btninp btn-md"  data-toggle="modal" data-target="#import"><i class="fa fa-plus fa-sm"></i> Import</button> -->
 
-
+<!-- Copy button -->
+<button id="copyBlacklist" class="btn btn-primary">Copy All Blacklist Numbers</button>
 
               </div>
 
@@ -78,7 +79,7 @@
                 $d = $i + 1;
                 echo '<tr id="'.$BlackListData[$i]['id'].'">
                     <td>'.$d.'</td>
-                    <td><b>'.$BlackListData[$i]['number'].'</b></td>
+                    <td>'.$BlackListData[$i]['number'].'</td>
                     <td><a href="#" class="btn btn-danger delete" onclick="myfun('.$BlackListData[$i]['id'].')"><i class="fa fa-trash"></i></a></td>
                 </tr>';
             }
@@ -87,8 +88,7 @@
     </tbody>
 </table>
 
-<!-- Copy button -->
-<button id="copyBlacklist" class="btn btn-primary">Copy All Blacklist Numbers</button>
+
 
 <script>
 $(document).ready(function() {
