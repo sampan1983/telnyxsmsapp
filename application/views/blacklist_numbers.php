@@ -60,67 +60,63 @@
 
             </div>
 
-              <table class="table table-striped table-bordered datatable table-responsive-add" id="dataTable">
+<!-- DataTable HTML structure -->
+<table class="table table-striped table-bordered datatable table-responsive-add" id="dataTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Number</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        if ($BlackListData == 'No') {
+            echo '<tr><td valign="top" colspan="3" class="dataTables_empty">No data available in table</td></tr>';
+        } else {
+            for ($i = 0; $i < sizeof($BlackListData); $i++) {
+                $d = $i + 1;
+                echo '<tr id="'.$BlackListData[$i]['id'].'">
+                    <td>'.$d.'</td>
+                    <td><b>'.$BlackListData[$i]['number'].'</b></td>
+                    <td><a href="#" class="btn btn-danger delete" onclick="myfun('.$BlackListData[$i]['id'].')"><i class="fa fa-trash"></i></a></td>
+                </tr>';
+            }
+        }
+        ?>
+    </tbody>
+</table>
 
-                <thead>
+<!-- Copy button -->
+<button id="copyBlacklist" class="btn btn-primary">Copy All Blacklist Numbers</button>
 
-                  <tr>
+<script>
+$(document).ready(function() {
+    // Initialize DataTable without pagination
+    var table = $('#dataTable').DataTable({
+        paging: false // Disable pagination to show all rows
+    });
 
-                    <th>ID</th>
+    // Copy button logic
+    $('#copyBlacklist').on('click', function() {
+        // Get only the "Number" column (second column)
+        var blacklistNumbers = [];
+        table.rows().every(function() {
+            var data = this.data();
+            blacklistNumbers.push(data[1]); // Get the second column (Number)
+        });
 
-                    <th>Number</th>
+        // Copy to clipboard
+        var tempElement = $('<textarea>');
+        tempElement.val(blacklistNumbers.join('\n')).appendTo('body').select();
+        document.execCommand('copy');
+        tempElement.remove();
 
-                    <th>Action</th>
+        alert('Blacklist numbers copied to clipboard!');
+    });
+});
+</script>
 
-
-
-                  </tr>
-
-                </thead>
-
-                <tbody>
-
-                  <?php
-
-                  if ($BlackListData=='No') {
-
-                    echo '<tr><td valign="top" colspan="3" class="dataTables_empty">No data available in table</td></tr>';
-
-                  }
-
-                  else{
-
-                  for ($i=0; $i <sizeof($BlackListData) ; $i++) {
-
-                    $d = $i+1;
-
-                    echo '<tr '.$BlackListData[$i]['id'].'>
-
-
-
-                          <td>'.$d.'</td>
-
-                          <td><b>'.$BlackListData[$i]['number'].'</b></td>
-
-                          <td><a href="#" class = "btn btn-danger delete" onclick = "myfun('.$BlackListData[$i]['id'].')"><i class="fa fa-trash"> </i> </a></td>
-
-
-
-
-
-                    </tr>';
-
-                  }
-
-                }
-
-                  ?>
-
-
-
-                                  </tbody>
-
-              </table>
 
             </div>
 
