@@ -133,81 +133,43 @@
 
     <div class="modal-dialog">
 
-<form  method="post" name="" id="blacklist_form" enctype="multipart/form-data">
-
-      <div class="modal-content">
-
-
-
+<form method="post" name="" id="blacklist_form" enctype="multipart/form-data">
+    <div class="modal-content">
         <!-- Modal Header -->
-
         <div class="modal-header">
-
-          <h4 class="modal-title text-center">Add Number</h4>
-
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
+            <h4 class="modal-title text-center">Add Numbers</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-
-
 
         <!-- Modal body -->
-
         <div class="modal-body">
-
-         <div class="row">
-
-
-
-                    <div class="col-sm-12">
-
-
-
-                      <div class="form-group">
-
-                        <label for="name">Number</label>
-
-                        <input type="text" class="form-control" id="name" name="number" placeholder="Enter Number">
-
-                      </div>
-
-
-
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="numbers">Numbers</label>
+                        <textarea class="form-control" id="numbers" name="numbers" placeholder="Enter numbers separated by space, comma, or new line" rows="5"></textarea>
                     </div>
-
-
-
-                  </div>
-
-
-
-
-
+                </div>
+            </div>
         </div>
-
-
 
         <!-- Modal footer -->
-
         <div class="modal-footer">
-
-          <button type="submit" class="btn btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
+            <button type="submit" class="btn btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
-
-
-
-      </div>
-
-
-
-    </form>
+    </div>
+</form>
 
     </div>
 
   </div>
+
+
+
+
+
+  
   <div class="modal fade" id="import">
 
     <div class="modal-dialog">
