@@ -310,5 +310,47 @@ fclose($file);
 
 }
 
+
+
+public function export2() {
+    // Set the filename with today's date
+    $filename = date('Y-m-d') . "-blacklist-numbers.csv";
+
+    // Set headers to download the file as a CSV
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment;filename=' . $filename);
+
+    // Open the output stream for writing
+    $file = fopen('php://output', 'w');
+
+    // Set the column names for the CSV file
+    $cells[] = array('S.No.', 'Number', 'Date Added');
+
+    // Fetch the blacklist data from the database (replace with your query)
+    $result = $this->db->query("SELECT * FROM tapp_blacklist WHERE user_id = '" . $_SESSION['id'] . "'");
+
+    // Convert the result to an array
+    $row = $result->result_array();
+
+    // Loop through the data and add rows to the CSV
+    for ($i = 0; $i < sizeof($row); $i++) {
+        $d = $i + 1;
+        // Add each blacklist number along with a serial number and date added
+        $cells[] = array($d, $row[$i]['number'], $row[$i]['datetime']);
+    }
+
+    // Write each row to the CSV file
+    foreach ($cells as $cell) {
+        fputcsv($file, $cell);
+    }
+
+    // Close the file pointer
+    fclose($file);
+}
+
+
+
+
+
 ?>
 
