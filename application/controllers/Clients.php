@@ -306,12 +306,6 @@ fclose($file);
 
 	}
 
-
-
-}
-
-
-
 public function export2() {
     // Set the filename with today's date
     $filename = date('Y-m-d') . "-blacklist-numbers.csv";
@@ -347,6 +341,18 @@ public function export2() {
     // Close the file pointer
     fclose($file);
 }
+
+
+
+
+	
+
+
+}
+
+
+
+
 
 
 
