@@ -1,4 +1,5 @@
 <?php include_once('header.php') ?>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
     <main class="main">
 
 
@@ -252,8 +253,68 @@
   </div>
 
 
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+
 
 <script>
+$(document).ready(function() {
+    // Initialize DataTable with export buttons
+    var table = $('#dataTable').DataTable({
+        paging: true, // Enable pagination
+        dom: 'Bfrtip', // Add export buttons layout
+        buttons: [
+            {
+                extend: 'copy', // Default copy button from DataTables
+                text: 'Copy All'
+            },
+            {
+                extend: 'csv', // Export to CSV
+                text: 'Export CSV'
+            },
+            {
+                extend: 'excel', // Export to Excel
+                text: 'Export Excel'
+            },
+            {
+                extend: 'pdf', // Export to PDF
+                text: 'Export PDF'
+            },
+            {
+                extend: 'print', // Print option
+                text: 'Print'
+            }
+        ]
+    });
+
+    // Custom copy blacklist button logic
+    $('#copyBlacklist').on('click', function() {
+        // Get only the "Number" column (second column)
+        var blacklistNumbers = [];
+        table.rows().every(function() {
+            var data = this.data();
+            blacklistNumbers.push(data[1]); // Get the second column (Number)
+        });
+
+        // Copy to clipboard
+        var tempElement = $('<textarea>');
+        tempElement.val(blacklistNumbers.join('\n')).appendTo('body').select();
+        document.execCommand('copy');
+        tempElement.remove();
+
+        alert('Blacklist numbers copied to clipboard!');
+    });
+});
+</script>
+
+
+
+
+
+
+<!-- <script>
 $(document).ready(function() {
     // Initialize DataTable without pagination
     var table = $('#dataTable').DataTable({
@@ -316,7 +377,7 @@ $(document).ready(function() {
 
 
 
-  </script>
+  </script> -->
 
 
 
